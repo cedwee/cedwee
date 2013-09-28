@@ -452,7 +452,7 @@ define('plugCubed/Model',['app/base/Class','app/facades/ChatFacade','app/store/L
             this.addGUIButton(this.settings.autojoin,                                    'join',        this.i18n('menu.autojoin'));
             this.addGUIButton(this.settings.userlist,                                    'userlist',    this.i18n('menu.userlist'));
             this.addGUIButton(this.settings.customColors,                                'colors',      this.i18n('menu.customchatcolors'));
-            this.addGUIButton(this.settings.autorespond,                                 'autorespond', this.i18n('menu.sleepingstatus'));
+            this.addGUIButton(this.settings.autorespond,                                 'autorespond', this.i18n('menu.sleepstatus'));
             this.addGUIButton((this.settings.notify & 1) === 1,                          'notify',      this.i18n('menu.notify'));
             this.addGUIButton(this.settings.chatlimit.enabled,                           'chatlimit',   this.i18n('menu.limitchatlog'));
             this.addGUIButton(!JSON.parse(LocalStorage.getItem('stngs')).streamDisabled, 'stream',      this.i18n('menu.stream'));
@@ -900,14 +900,14 @@ define('plugCubed/Model',['app/base/Class','app/facades/ChatFacade','app/store/L
                     } else
                         API.sendChat('@' + data.from + ' Autojoin was not enabled');
                 }
-                if (data.message.indexOf('!sleepingdisable') > -1) {
+                if (data.message.indexOf('!sleepdisable') > -1) {
                     if (this.settings.autorespond) {
                         this.settings.autorespond = false;
                         this.changeGUIColor('autorespond',this.settings.autorespond);
                         this.saveSettings();
-                        API.sendChat('@' + data.from + ' Sleeping message disabled');
+                        API.sendChat('@' + data.from + ' sleep message disabled');
                     } else
-                        API.sendChat('@' + data.from + ' Sleeping message was not enabled');
+                        API.sendChat('@' + data.from + ' sleep message was not enabled');
                 }
                 if (data.message.indexOf('!disable') > 0 || data.message.indexOf('!afkdisable') > 0) return;
             }
