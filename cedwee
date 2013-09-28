@@ -452,7 +452,7 @@ define('plugCubed/Model',['app/base/Class','app/facades/ChatFacade','app/store/L
             this.addGUIButton(this.settings.autojoin,                                    'join',        this.i18n('menu.autojoin'));
             this.addGUIButton(this.settings.userlist,                                    'userlist',    this.i18n('menu.userlist'));
             this.addGUIButton(this.settings.customColors,                                'colors',      this.i18n('menu.customchatcolors'));
-            this.addGUIButton(this.settings.autorespond,                                 'autorespond', this.i18n('menu.sleepstatus'));
+            this.addGUIButton(this.settings.autorespond,                                 'autorespond', this.i18n('menu.sleep'));
             this.addGUIButton((this.settings.notify & 1) === 1,                          'notify',      this.i18n('menu.notify'));
             this.addGUIButton(this.settings.chatlimit.enabled,                           'chatlimit',   this.i18n('menu.limitchatlog'));
             this.addGUIButton(!JSON.parse(LocalStorage.getItem('stngs')).streamDisabled, 'stream',      this.i18n('menu.stream'));
